@@ -1,0 +1,115 @@
+body{
+  background-color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+}
+
+.container{
+  position: absolute;
+  left: 35%;
+  top: 6%;
+}
+
+.RPCbtn{
+  border-radius: 70px;
+  padding: 30px;
+  margin-right: 6px;
+  background-color: black;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+img{
+  height: 60px;
+}
+
+.score{
+  margin-top: 50px;
+}
+
+.ruleBtn{
+  background-color: orange;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.rules{
+  padding: 10px;
+  position: absolute;
+  top: -40%;
+  left: 28%;
+  width: 19cm;
+  background-color: orange;
+  color: black;
+  border-radius: 4px;
+  transition: all ease-in 1.6s;
+}
+
+.winnerOrLoser{
+  margin-top: 10px;
+  font-size: larger;
+}
+
+.pickedItems{
+  margin-top: 10px;
+}
+
+@media (max-width:500px) {
+  .container{
+    left: 0%;
+    top: 2%;
+  }
+  .RPCbtn{
+    margin-left: 8px;
+    margin-right: 10px;
+    padding: 17px;
+  }
+  .rules{
+    top: -70%;
+    max-width: 370px;
+  }
+  .RPCbtnContainer{
+    margin-left: 30px;
+  }
+  .extra{
+    margin-left: 70px;
+  }
+}
+
+@media (max-width:400px) {
+  .rules{
+    top: -60%;
+  }
+}
+
+@media (max-width:950px) {
+  .container{
+    top: 1%;
+    left: 5%;
+  }
+  .RPCbtn{
+    padding: 20px;
+    margin-right: 20px;
+  }
+  .score{
+    font-size: 25px;
+  }
+  .winnerOrLoser{
+    font-size: 25px;
+  }
+  .scoreInRound{
+    font-size: 25px;
+  }
+  .pickedItem{
+    margin: 10px 0px;
+    font-size: 25px;
+  }
+  .itemsImg{
+    height: 90px;
+  }
+  .rules{
+    left: 4%;
+  }
+}
