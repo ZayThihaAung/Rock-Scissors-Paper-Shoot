@@ -6,6 +6,7 @@ const declareTag = document.querySelector(".winnerOrLoser");
 const containerTag = document.querySelector(".container");
 const rulesTag = document.querySelector(".rules");
 const winnerTag = document.querySelector('.winner');
+const autoPlayBtn = document.querySelector('.autoPlayBtn');
 
 let score = JSON.parse(localStorage.getItem('score')) || {
   wins : 0,
@@ -66,7 +67,7 @@ const reloadPage = () => {
   console.log(winnerTag);
   setTimeout(() => {
     location.reload();
-  }, 200000);
+  }, 2000);
 }
 
 // Game's Rules
@@ -75,6 +76,24 @@ const rules = () => {
   setTimeout(() => {
     rulesTag.style.top = '-50%';
   }, 19000);
+}
+
+let isAutoPlaying = false;
+let intervalId;
+
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalId = setInterval(() => {
+      const userMove = pickComputerMove();
+      playGame(userMove);
+    }, 1000);
+    autoPlayBtn.innerHTML = 'Stop Auto Play';
+    isAutoPlaying = true;
+  } else{
+    clearInterval(intervalId);
+    autoPlayBtn.innerHTML = 'Auto Play';
+    isAutoPlaying = false;
+  }
 }
 
 let result = '';
