@@ -27,12 +27,13 @@ img{
   margin-top: 50px;
 }
 
-.ruleBtn{
+.ruleBtn, .autoPlayBtn{
   background-color: orange;
   padding: 10px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  margin-left: 15px;
 }
 
 .rules{
@@ -52,8 +53,13 @@ img{
   font-size: larger;
 }
 
-.pickedItems{
-  margin-top: 10px;
+.winner{
+  margin-top: 25%;
+  margin-left: 30%;
+}
+
+.pickedItem{
+  margin-top: 16px;
 }
 
 @media (max-width:500px) {
