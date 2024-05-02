@@ -70,6 +70,11 @@ const reloadPage = () => {
   }, 2000);
 }
 
+document.querySelector('.ruleBtn')
+  .addEventListener('click', () => {
+    rules();
+});
+
 // Game's Rules
 const rules = () => {
   rulesTag.style.top = '60%'; 
@@ -77,6 +82,10 @@ const rules = () => {
     rulesTag.style.top = '-50%';
   }, 19000);
 }
+
+autoPlayBtn.addEventListener("click", () => {
+  autoPlay();
+})
 
 let isAutoPlaying = false;
 let intervalId;
