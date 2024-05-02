@@ -120,6 +120,18 @@ document.querySelector('.jsRockBtn')
     playGame('rock');
 });
 
+// Enable to play with your keyboard.
+document.body.addEventListener('keydown', event => {
+  console.log(event.key);
+  if (event.key === 'r') {
+    playGame('rock');
+  } if (event.key === 'p') {
+    playGame('paper');
+  } if (event.key === 's') {
+    playGame('scissors');
+  }
+})
+
 let result = '';
 function playGame(userMove) {
   const computerMove = pickComputerMove();
