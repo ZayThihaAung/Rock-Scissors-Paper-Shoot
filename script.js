@@ -96,6 +96,21 @@ function autoPlay() {
   }
 }
 
+document.querySelector('.jsPaperBtn')
+  .addEventListener('click', () => {
+    playGame('paper');
+});
+
+document.querySelector('.jsScissorsBtn')
+  .addEventListener('click', () => {
+    playGame('scissors');
+});
+
+document.querySelector('.jsRockBtn')
+  .addEventListener('click', () => {
+    playGame('rock');
+});
+
 let result = '';
 function playGame(userMove) {
   const computerMove = pickComputerMove();
