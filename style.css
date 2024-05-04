@@ -27,7 +27,7 @@ img{
   margin-top: 50px;
 }
 
-.ruleBtn, .autoPlayBtn{
+.ruleBtn, .autoPlayBtn, .resetScoreBtn, .confirm{
   background-color: orange;
   padding: 10px;
   border-radius: 10px;
@@ -36,10 +36,14 @@ img{
   margin-left: 15px;
 }
 
+.confirmation{
+  display: none;
+}
+
 .rules{
   padding: 10px;
   position: absolute;
-  top: -40%;
+  top: -50%;
   left: 28%;
   width: 19cm;
   background-color: orange;
