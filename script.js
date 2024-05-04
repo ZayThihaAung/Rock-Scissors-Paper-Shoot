@@ -7,6 +7,10 @@ const containerTag = document.querySelector(".container");
 const rulesTag = document.querySelector(".rules");
 const winnerTag = document.querySelector('.winner');
 const autoPlayBtn = document.querySelector('.autoPlayBtn');
+const resetScoreBtn = document.querySelector('.resetScoreBtn');
+const confirmation = document.querySelector('.confirmation');
+const yesBtn = document.querySelector('.js-yes');
+const noBtn = document.querySelector('.js-no');
 
 let score = JSON.parse(localStorage.getItem('score')) || {
   wins : 0,
@@ -60,9 +64,7 @@ const reloadPage = () => {
   } else if (roundScore.tie >= 4) {
     winnerTag.innerHTML = 'Tie!';
   }
-  localStorage.removeItem('roundScore');
-  localStorage.removeItem('roundNumber');
-  localStorage.removeItem('score');
+  localStorage.clear();
   winnerTag.classList.add("styled");
   console.log(winnerTag);
   setTimeout(() => {
@@ -76,8 +78,8 @@ document.querySelector('.ruleBtn')
 });
 
 // Game's Rules
-const rules = () => {
-  rulesTag.style.top = '60%'; 
+function rules() {
+  rulesTag.style.top = '55%'; 
   setTimeout(() => {
     rulesTag.style.top = '-50%';
   }, 19000);
@@ -129,8 +131,55 @@ document.body.addEventListener('keydown', event => {
     playGame('paper');
   } if (event.key === 's') {
     playGame('scissors');
+  } if (event.key === 'a') {
+    autoPlay();
+  } if (event.key === 'Backspace') {
+    resetScore();
+  } if (event.key === 'y') {
+    taskForYes();
+  } if (event.key === 'n') {
+    confirmation.style.display = 'none';
+  } if (event.key === 'c') {
+    rules();
   }
+});
+
+// Reset Score Task
+resetScoreBtn.addEventListener('click', () => {
+  resetScore();
 })
+
+function resetScore() {
+  confirmation.style.display = 'block';
+}
+
+yesBtn.addEventListener('click', () => {
+  taskForYes();
+});
+
+function taskForYes() {
+  score = {
+    wins: 0,
+    lose : 0,
+    tie : 0
+  }
+  roundScore = {
+    wins: 0,
+    lose : 0,
+    tie : 0
+  }
+  localStorage.clear();
+  scoreTag.innerHTML = `Wins :0, Lose :0, Tie :0`;
+  declareTag.innerHTML = '';
+  pickedItemTag.innerHTML = '';
+  scoreInRoundTag.innerHTML = `You : 0 | 0 Computer | Ties : 0`;
+  roundTag.innerHTML = `Round : 0`;
+  confirmation.style.display = 'none';
+}
+
+noBtn.addEventListener('click', () => {
+  confirmation.style.display = 'none';
+});
 
 let result = '';
 function playGame(userMove) {
